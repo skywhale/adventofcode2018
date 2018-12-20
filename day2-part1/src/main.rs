@@ -5,19 +5,19 @@ fn solver(input: &str) -> i32 {
     let mut count_three = 0;
     for id in input.split(char::is_whitespace) {
         // A counter for each ASCII code between 'a' and 'z'.
-        let mut counter = vec![0; 26];
-        for c in id.chars() {
-            let index = ((c as u8) - ('a' as u8)) as usize;
+        let mut counter = [0usize; 26];
+        for c in id.bytes() {
+            let index = (c - b'a') as usize;
             counter[index] += 1;
         }
         let mut found_two = false;
         let mut found_three = false;
-        for count in counter {
-            if count == 2 && !found_two {
+        for count in &counter {
+            if *count == 2 && !found_two {
                 found_two = true;
                 count_two += 1;
             }
-            if count == 3 && !found_three {
+            if *count == 3 && !found_three {
                 found_three = true;
                 count_three += 1;
             }

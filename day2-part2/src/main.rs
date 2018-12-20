@@ -3,13 +3,9 @@ use std::fs;
 use std::vec::Vec;
 
 fn get_common_chars(id1: &str, id2: &str) -> String {
-    let mut common_chars = String::new();
-    for (c1, c2) in id1.chars().zip(id2.chars()) {
-        if c1 == c2 {
-            common_chars.push(c1);
-        }
-    }
-    common_chars
+    id1.chars().zip(id2.chars())
+        .filter_map(|(c1, c2)| if c1 == c2 { Some(c1) } else { None })
+        .collect()
 }
 
 // A matcher for constant-time operation.
