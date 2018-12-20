@@ -28,9 +28,6 @@ fn solver(input: &str) -> i32 {
             }
         }
     }
-    if !freq_twice_found {
-        panic!("You shouldn't reach here!");
-    }
     freq_twice
 }
 
