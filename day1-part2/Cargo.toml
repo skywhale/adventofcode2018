@@ -1,7 +1,0 @@
-[package]
-name = "day1-part2"
-version = "0.1.0"
-authors = ["Ryo Kawaguchi <ryo@kawagu.ch>"]
-edition = "2018"
-
-[dependencies]
